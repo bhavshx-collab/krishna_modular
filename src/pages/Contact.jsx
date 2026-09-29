@@ -90,6 +90,17 @@ export default function Contact() {
             >
               <Mail size={16} /> Email Us
             </a>
+            <a
+              href="https://www.instagram.com/krishnamodular__interior/"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-instagram-btn"
+              className="flex items-center gap-2.5 text-white px-6 py-3 rounded-lg font-['Outfit'] font-semibold text-sm transition-all hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #833ab4 0%, #c13584 40%, #e1306c 70%, #f77737 100%)' }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px', flexShrink: 0 }}><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
           </div>
         </div>
       </section>
