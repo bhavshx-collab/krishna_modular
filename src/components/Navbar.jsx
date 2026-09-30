@@ -14,7 +14,7 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled]     = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
 
@@ -31,143 +31,233 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const isHome = location.pathname === '/'
+  const isHome        = location.pathname === '/'
   const isTransparent = isHome && !scrolled
 
   return (
     <>
-      {/* Top Contact Bar */}
+      {/* ═══════════════════════════════════════════
+          FIXED HEADER WRAPPER
+          Contains both top bar and main nav in a
+          single fixed container so they always
+          stack correctly and never overlap.
+      ═══════════════════════════════════════════ */}
       <div
-        className="hidden md:block"
-        style={{ position: 'fixed', left: 0, right: 0, top: 0, zIndex: 51, background: '#1B3A6B' }}
-      >
-        <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.45rem 2rem' }}>
-          <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.58)', letterSpacing: '0.03em' }}>
-            No. 267/2A2D3, T.H. Road, Melmanambedu, Chennai - 600124
-          </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <a href="tel:+919566026606" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.72)', textDecoration: 'none' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#C8971D'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
-            >
-              <Phone size={10} />+91 95660 26606
-            </a>
-            <a href="tel:+919655834404" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.72)', textDecoration: 'none' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#C8971D'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
-            >
-              <Phone size={10} />+91 96558 34404
-            </a>
-            <a href="mailto:krishnamodular3@gmail.com" style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.72)', textDecoration: 'none' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#C8971D'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
-            >
-              krishnamodular3@gmail.com
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <nav
+        id="site-header"
         style={{
           position: 'fixed',
-          left: 0, right: 0,
           top: 0,
-          zIndex: 40,
-          transition: 'background 0.3s ease, box-shadow 0.3s ease',
-          background: isTransparent ? 'transparent' : 'rgba(255,255,255,0.97)',
-          backdropFilter: isTransparent ? 'none' : 'blur(14px)',
-          boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
-          borderBottom: isTransparent ? 'none' : '1px solid #E8E2D9',
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
         }}
-        className={isTransparent ? 'md:[top:0px]' : 'md:[top:33px]'}
       >
-        <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 2rem', height: '72px' }}>
+        {/* ── Top Contact Bar (desktop only, md+) ── */}
+        <div
+          className="hidden md:block"
+          style={{
+            background: '#1B3A6B',
+            height: '33px',
+            flexShrink: 0,
+          }}
+        >
+          <div style={{
+            maxWidth: '80rem',
+            margin: '0 auto',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 2rem',
+          }}>
+            <span style={{
+              fontFamily: "'Outfit',sans-serif",
+              fontSize: '0.68rem',
+              color: 'rgba(255,255,255,0.58)',
+              letterSpacing: '0.03em',
+            }}>
+              No. 267/2A2D3, T.H. Road, Melmanambedu, Chennai - 600124
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+              {[
+                { href: 'tel:+919566026606', label: '+91 95660 26606' },
+                { href: 'tel:+919655834404', label: '+91 96558 34404' },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.72)', textDecoration: 'none' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#C8971D'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
+                >
+                  <Phone size={10} />{label}
+                </a>
+              ))}
+              <a
+                href="mailto:krishnamodular3@gmail.com"
+                style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.68rem', color: 'rgba(255,255,255,0.72)', textDecoration: 'none' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#C8971D'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
+              >
+                krishnamodular3@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
 
-          {/* Logo */}
-          <Link to="/" aria-label="Krishna Modular" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            {isTransparent ? (
-              <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(6px)', borderRadius: '8px', padding: '0.3rem 0.5rem' }}>
-                <img src={logo} alt="Krishna Modular" style={{ height: '2.75rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
+        {/* ── Main Navbar ── */}
+        <nav
+          style={{
+            height: '72px',
+            flexShrink: 0,
+            width: '100%',
+            transition: 'background 0.3s ease, box-shadow 0.3s ease',
+            /* On mobile hero is below the spacer, so transparent nav = invisible hamburger.
+               Only use transparent background on md+ (desktop) where hero fills behind header */
+            background: isTransparent ? 'transparent' : 'rgba(255,255,255,0.97)',
+            backdropFilter: isTransparent ? 'none' : 'blur(14px)',
+            boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
+            borderBottom: isTransparent ? 'none' : '1px solid #E8E2D9',
+            position: 'relative', // for the dropdown
+          }}
+          className={isTransparent ? 'nav-transparent' : ''}
+        >
+          <div style={{
+            maxWidth: '80rem',
+            margin: '0 auto',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 2rem',
+          }}>
+
+            {/* Logo */}
+            <Link to="/" aria-label="Krishna Modular" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
+              {isTransparent ? (
+                <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(6px)', borderRadius: '8px', padding: '0.3rem 0.5rem' }}>
+                  <img src={logo} alt="Krishna Modular" style={{ height: '2.75rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
+                </div>
+              ) : (
+                <img src={logo} alt="Krishna Modular" style={{ height: '3rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
+              )}
+            </Link>
+
+            {/* Desktop Nav Links — hidden on lg and below, show on xl? Actually use lg: breakpoint */}
+            <ul className="hidden lg:flex items-center gap-0.5" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+              {navLinks.map(({ label, path }) => (
+                <li key={path}>
+                  <NavLink
+                    to={path}
+                    end={path === '/'}
+                    className={({ isActive }) =>
+                      'block px-3.5 py-2 rounded font-medium text-sm tracking-wide transition-colors duration-200 ' +
+                      (isActive ? 'text-[#C8971D]' : isTransparent ? 'text-white/90 hover:text-[#C8971D]' : 'text-[#1C1C1E] hover:text-[#C8971D]')
+                    }
+                    style={{ fontFamily: "'Outfit',sans-serif" }}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA + Hamburger row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+              {/* CTA Button — desktop only */}
+              <div className="hidden lg:block">
+                <Link to="/contact" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.65rem 1.375rem' }}>
+                  Get Free Quote
+                </Link>
               </div>
-            ) : (
-              <img src={logo} alt="Krishna Modular" style={{ height: '3rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
-            )}
-          </Link>
 
-          {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-0.5" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-            {navLinks.map(({ label, path }) => (
-              <li key={path}>
-                <NavLink to={path} end={path === '/'}
+              {/* Hamburger — mobile/tablet only */}
+              <button
+                onClick={() => setMobileOpen(v => !v)}
+                className="lg:hidden"
+                style={{
+                  padding: '0.5rem',
+                  border: 'none',
+                  background: 'transparent',
+                  cursor: 'pointer',
+                  /* Always blue on mobile (nav is always white on mobile),
+                     white only on desktop when nav is transparent over hero */
+                  color: '#1B3A6B',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+                aria-label="Toggle menu"
+                id="mobile-menu-toggle"
+              >
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Dropdown — positioned below the nav bar */}
+          <div
+            className="lg:hidden"
+            style={{
+              position: 'absolute',
+              top: '72px',
+              left: 0,
+              right: 0,
+              overflow: 'hidden',
+              maxHeight: mobileOpen ? '90vh' : '0',
+              transition: 'max-height 0.35s ease',
+              background: '#fff',
+              borderTop: mobileOpen ? '1px solid #E8E2D9' : 'none',
+              boxShadow: mobileOpen ? '0 8px 32px rgba(0,0,0,0.12)' : 'none',
+              overflowY: 'auto',
+            }}
+          >
+            <div style={{ padding: '0.75rem 1.5rem 1.5rem' }}>
+              {navLinks.map(({ label, path }) => (
+                <NavLink
+                  key={path}
+                  to={path}
+                  end={path === '/'}
                   className={({ isActive }) =>
-                    'block px-3.5 py-2 rounded font-medium text-sm tracking-wide transition-colors duration-200 ' +
-                    (isActive ? 'text-[#C8971D]' : isTransparent ? 'text-white/90 hover:text-[#C8971D]' : 'text-[#1C1C1E] hover:text-[#C8971D]')
+                    'block py-3 font-medium text-sm border-b border-[#F5F0E8] last:border-0 transition-colors ' +
+                    (isActive ? 'text-[#C8971D]' : 'text-[#1C1C1E]')
                   }
                   style={{ fontFamily: "'Outfit',sans-serif" }}
                 >
                   {label}
                 </NavLink>
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA */}
-          <div className="hidden lg:block">
-            <Link to="/contact" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.65rem 1.375rem' }}>
-              Get Free Quote
-            </Link>
-          </div>
-
-          {/* Hamburger */}
-          <button
-            onClick={() => setMobileOpen(v => !v)}
-            className="lg:hidden"
-            style={{ padding: '0.5rem', border: 'none', background: 'transparent', cursor: 'pointer', color: isTransparent ? '#fff' : '#1B3A6B', display: 'flex', alignItems: 'center' }}
-            aria-label="Toggle menu"
-            id="mobile-menu-toggle"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Dropdown */}
-        <div
-          className="lg:hidden"
-          style={{ overflow: 'hidden', maxHeight: mobileOpen ? '90vh' : '0', transition: 'max-height 0.35s ease', background: '#fff', borderTop: mobileOpen ? '1px solid #E8E2D9' : 'none' }}
-        >
-          <div style={{ padding: '0.75rem 1.5rem 1.5rem' }}>
-            {navLinks.map(({ label, path }) => (
-              <NavLink key={path} to={path} end={path === '/'}
-                className={({ isActive }) =>
-                  'block py-3 font-medium text-sm border-b border-[#F5F0E8] last:border-0 transition-colors ' +
-                  (isActive ? 'text-[#C8971D]' : 'text-[#1C1C1E]')
-                }
-                style={{ fontFamily: "'Outfit',sans-serif" }}
-              >
-                {label}
-              </NavLink>
-            ))}
-            <div style={{ paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <Link to="/contact" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Get Free Quote
-              </Link>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid #E8E2D9' }}>
-                <a href="tel:+919566026606" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.85rem', color: '#1B3A6B', textDecoration: 'none' }}>
-                  <Phone size={14} style={{ color: '#C8971D' }} />+91 95660 26606
-                </a>
-                <a href="tel:+919655834404" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.85rem', color: '#1B3A6B', textDecoration: 'none' }}>
-                  <Phone size={14} style={{ color: '#C8971D' }} />+91 96558 34404
-                </a>
+              ))}
+              <div style={{ paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <Link to="/contact" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                  Get Free Quote
+                </Link>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid #E8E2D9' }}>
+                  <a href="tel:+919566026606" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.85rem', color: '#1B3A6B', textDecoration: 'none' }}>
+                    <Phone size={14} style={{ color: '#C8971D' }} />+91 95660 26606
+                  </a>
+                  <a href="tel:+919655834404" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Outfit',sans-serif", fontSize: '0.85rem', color: '#1B3A6B', textDecoration: 'none' }}>
+                    <Phone size={14} style={{ color: '#C8971D' }} />+91 96558 34404
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
-      {/* Spacer for desktop top bar */}
-      <div className="hidden md:block" style={{ height: '33px' }} />
+      {/* ═══════════════════════════════════════════
+          LAYOUT SPACER
+          Pushes page content below the fixed header.
+          Mobile: 72px (nav only)
+          Desktop (md+): 105px (top bar 33px + nav 72px)
+      ═══════════════════════════════════════════ */}
+      <div
+        aria-hidden="true"
+        className="header-spacer"
+      />
     </>
   )
 }
