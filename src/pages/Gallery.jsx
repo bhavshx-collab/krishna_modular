@@ -31,11 +31,12 @@ export default function GalleryPage() {
             <h2 className="section-heading mb-3">
               Crafted <span>Spaces</span>
             </h2>
-            <span className="text-amber-600 text-xs font-['Outfit'] bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5 inline-block">
-              ⚠ Placeholder gallery — to be replaced with actual project photos from the client
-            </span>
+            <p className="section-subtext" style={{ maxWidth: '36rem', margin: '0 auto' }}>
+              Explore real modular kitchens, fitted wardrobes, bedroom collections, TV media walls, and custom woodwork manufactured by Krishna Modular.
+            </p>
           </div>
           <Gallery showFilter={true} />
+
         </div>
       </section>
 

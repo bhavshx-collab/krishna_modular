@@ -31,13 +31,8 @@ export default function Products() {
             <p className="section-label">Products</p>
             <h2 className="section-heading" style={{ marginBottom: '0.75rem' }}>Our <span>Furniture</span> Range</h2>
             <p className="section-subtext">
-              All furniture is custom-designed and manufactured to your specifications. Browse our categories and enquire for a personalised quote.
+              All furniture is custom-designed and manufactured to your specifications at our Chennai facility. Browse our categories and enquire for a personalised consultation.
             </p>
-          </div>
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.72rem', color: '#b45309', background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '100px', padding: '0.3rem 1rem', display: 'inline-block' }}>
-              Product images will be updated once provided by the client
-            </span>
           </div>
           <div style={{ display: 'grid', gap: '1.375rem' }} className="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product) => (

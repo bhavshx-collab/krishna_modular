@@ -5,7 +5,7 @@ export const products = [
     category: 'Modular Kitchens',
     title: 'Modular Kitchen Systems',
     shortDesc: 'Intelligently designed kitchens that blend style with smart storage.',
-    image: null, // Replace with actual image path when provided
+    image: '/images/gallery/wa_2.jpeg',
     tag: 'Most Popular',
   },
   {
@@ -14,7 +14,7 @@ export const products = [
     category: 'Wardrobes',
     title: 'Fitted Wardrobes',
     shortDesc: 'Floor-to-ceiling wardrobes crafted for your bedroom dimensions.',
-    image: null,
+    image: '/images/gallery/37.jpeg',
     tag: null,
   },
   {
@@ -23,7 +23,7 @@ export const products = [
     category: 'TV Units',
     title: 'Media & TV Units',
     shortDesc: 'Modern media walls and TV units with integrated display and storage.',
-    image: null,
+    image: '/images/gallery/26.jpeg',
     tag: null,
   },
   {
@@ -32,7 +32,7 @@ export const products = [
     category: 'Bedroom Furniture',
     title: 'Bedroom Collections',
     shortDesc: 'Complete bedroom sets designed for comfort and elegance.',
-    image: null,
+    image: '/images/gallery/27.jpeg',
     tag: null,
   },
   {
@@ -41,7 +41,7 @@ export const products = [
     category: 'Office Furniture',
     title: 'Office & Workspace',
     shortDesc: 'Functional office furniture for home and commercial workspaces.',
-    image: null,
+    image: '/images/gallery/40.jpeg',
     tag: null,
   },
   {
@@ -50,7 +50,7 @@ export const products = [
     category: 'Storage Units',
     title: 'Storage Solutions',
     shortDesc: 'Clever storage furniture designed for every room.',
-    image: null,
+    image: '/images/gallery/42.jpeg',
     tag: null,
   },
   {
@@ -59,7 +59,8 @@ export const products = [
     category: 'Custom Modular',
     title: 'Custom Modular Furniture',
     shortDesc: 'Fully bespoke furniture built to your exact vision and space.',
-    image: null,
+    image: '/images/gallery/14.jpeg',
     tag: 'Bespoke',
   },
 ];
+

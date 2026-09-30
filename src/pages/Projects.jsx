@@ -32,12 +32,12 @@ export default function Projects() {
             <h2 className="section-heading mb-3">
               Featured <span>Projects</span>
             </h2>
-            <span className="text-amber-600 text-xs font-['Outfit'] bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5 inline-block">
-              ⚠ Placeholder projects — to be replaced with actual completed project details and photos
-            </span>
+            <p className="section-subtext" style={{ maxWidth: '38rem', margin: '0 auto' }}>
+              Explore our turnkey residential, commercial, and bespoke interior executions delivered across Chennai.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

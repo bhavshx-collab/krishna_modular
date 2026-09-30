@@ -5,7 +5,7 @@ import ProductCard from '../components/ProductCard'
 import ProjectCard from '../components/ProjectCard'
 import TestimonialCard from '../components/TestimonialCard'
 import CTA from '../components/CTA'
-import Gallery from '../components/Gallery'
+import Gallery, { galleryItems } from '../components/Gallery'
 import { services } from '../data/services'
 import { products } from '../data/products'
 import { projects } from '../data/projects'
@@ -62,10 +62,13 @@ export default function Home() {
                 <Link to="/contact" className="btn-secondary">Enquire Now</Link>
               </div>
             </div>
-            <div className="img-frame" style={{ borderRadius: '10px' }}>
-              <div className="shimmer img-placeholder" style={{ height: '420px', borderRadius: '10px' }}>
-                <span style={{ fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.5 }}>Client Photo — About Section</span>
-              </div>
+            <div className="img-frame" style={{ borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 30px -10px rgba(0,0,0,0.15)' }}>
+              <img
+                src="/images/gallery/wa_2.jpeg"
+                alt="Krishna Modular custom interior manufacturing and modular furniture in Chennai"
+                loading="lazy"
+                style={{ width: '100%', height: '420px', objectFit: 'cover', borderRadius: '10px', display: 'block' }}
+              />
             </div>
           </div>
         </div>
@@ -184,7 +187,7 @@ export default function Home() {
             </div>
             <Link to="/gallery" className="btn-outline-gold">Full Gallery <ArrowRight size={15} /></Link>
           </div>
-          <Gallery showFilter={false} />
+          <Gallery items={galleryItems.filter(item => item.featured).slice(0, 8)} showFilter={false} />
         </div>
       </section>
 

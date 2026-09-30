@@ -67,12 +67,15 @@ export default function About() {
             </div>
 
             <div style={{ position: 'relative' }}>
-              <div className="shimmer img-placeholder" style={{ height: '420px', borderRadius: '12px', border: '1px solid #E8E2D9', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', background: 'linear-gradient(135deg, #F5F0E8 0%, #EFEAE0 100%)' }}>
-                <Factory size={40} style={{ color: '#C8971D', opacity: 0.7 }} />
-                <span style={{ color: '#8B6914', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>Krishna Modular Workshop</span>
-                <span style={{ color: '#6B7280', fontSize: '0.8rem', fontFamily: "'Outfit', sans-serif" }}>Melmanambedu, Chennai</span>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 12px 35px -10px rgba(0,0,0,0.18)', border: '1px solid #E8E2D9' }}>
+                <img
+                  src="/images/gallery/48.jpeg"
+                  alt="Krishna Modular craftsman in-house manufacturing and joinery execution in Chennai"
+                  loading="lazy"
+                  style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
+                />
               </div>
-              <div style={{ position: 'absolute', bottom: '-1rem', left: '-1rem', width: '100%', height: '100%', border: '2px solid rgba(200, 151, 29, 0.25)', borderRadius: '12px', zIndex: -1 }} />
+              <div style={{ position: 'absolute', bottom: '-1rem', left: '-1rem', width: '100%', height: '100%', border: '2px solid rgba(200, 151, 29, 0.35)', borderRadius: '12px', zIndex: -1 }} />
             </div>
           </div>
         </div>
