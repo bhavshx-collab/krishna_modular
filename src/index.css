@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 /* ─────────────────────────────────────────────
    KRISHNA MODULAR — Premium Design System v2
@@ -729,12 +729,16 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 1.125rem 0;
-  gap: 0.75rem;
+  gap: 0.625rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .trust-bar { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
   .trust-bar {
-    grid-template-columns: repeat(4, 1fr);
-    padding: 1.375rem 0;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1.25rem 0;
+    gap: 0;
   }
 }
 
@@ -744,7 +748,10 @@ img { max-width: 100%; display: block; }
   gap: 0.75rem;
   padding: 0.25rem 0.5rem;
 }
-.trust-stat--border { border-left: 1px solid rgba(255,255,255,0.08); }
+.trust-stat--border { border-left: none; }
+@media (min-width: 1024px) {
+  .trust-stat--border { border-left: 1px solid rgba(255,255,255,0.1); }
+}
 
 .trust-num {
   font-family: 'Playfair Display', serif;
@@ -898,12 +905,12 @@ img { max-width: 100%; display: block; }
 }
 
 .compact-proj-img-wrap {
-  height: 260px;
+  height: 240px;
   overflow: hidden;
   position: relative;
 }
 @media (min-width: 1280px) {
-  .compact-proj-img-wrap { height: 290px; }
+  .compact-proj-img-wrap { height: 260px; }
 }
 
 .compact-proj-img {

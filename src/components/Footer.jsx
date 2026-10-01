@@ -40,7 +40,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed font-['Outfit'] mb-6">
+            <p className="text-white/75 text-sm leading-relaxed font-['Outfit'] mb-6">
               Premium modular furniture and interior solutions, manufactured with precision and crafted with care in Chennai, Tamil Nadu.
             </p>
             {/* Social Icons */}
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-['Outfit'] transition-colors group"
+                  className="flex items-center gap-2 text-white/75 hover:text-white text-sm font-['Outfit'] transition-colors group"
                   >
                     <ArrowRight size={12} className="text-[#C8971D] group-hover:translate-x-1 transition-transform" />
                     {link.label}
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-['Outfit'] transition-colors group"
+                  className="flex items-center gap-2 text-white/75 hover:text-white text-sm font-['Outfit'] transition-colors group"
                   >
                     <ArrowRight size={12} className="text-[#C8971D] group-hover:translate-x-1 transition-transform" />
                     {link.label}
@@ -110,14 +110,14 @@ export default function Footer() {
               Contact Us
             </h4>
             <ul className="space-y-4">
-              <li className="flex gap-3 text-sm text-white/60 font-['Outfit']">
+              <li className="flex gap-3 text-sm text-white/75 font-['Outfit']">
                 <MapPin size={16} className="text-[#C8971D] shrink-0 mt-0.5" />
                 <span>No. 267/2A2D3, T.H. Road,<br />Melmanambedu,<br />Chennai - 600124</span>
               </li>
               <li>
                 <a
                   href="tel:+919566026606"
-                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white font-['Outfit'] transition-colors"
+                  className="flex items-center gap-3 text-sm text-white/75 hover:text-white font-['Outfit'] transition-colors"
                 >
                   <Phone size={16} className="text-[#C8971D] shrink-0" />
                   +91 95660 26606
@@ -126,7 +126,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+919655834404"
-                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white font-['Outfit'] transition-colors"
+                  className="flex items-center gap-3 text-sm text-white/75 hover:text-white font-['Outfit'] transition-colors"
                 >
                   <Phone size={16} className="text-[#C8971D] shrink-0" />
                   +91 96558 34404
@@ -135,7 +135,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:krishnamodular3@gmail.com"
-                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white font-['Outfit'] transition-colors"
+                  className="flex items-center gap-3 text-sm text-white/75 hover:text-white font-['Outfit'] transition-colors"
                 >
                   <Mail size={16} className="text-[#C8971D] shrink-0" />
                   krishnamodular3@gmail.com
@@ -148,10 +148,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '1.125rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }} className="sm:flex-row">
-          <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>
+          <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)' }}>
             &copy; {new Date().getFullYear()} Krishna Modular. All rights reserved.
           </p>
-          <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>
+          <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)' }}>
             Interior Furniture Manufacturing &mdash; Chennai, Tamil Nadu
           </p>
         </div>

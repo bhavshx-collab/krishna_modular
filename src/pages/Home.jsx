@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import Hero from '../components/Hero'
 import ServiceCard from '../components/ServiceCard'
 import TestimonialCard from '../components/TestimonialCard'
@@ -84,10 +84,11 @@ export default function Home() {
         <div style={ctr}>
           <div className="trust-bar">
             {[
-              { num: '500+',    label: 'Projects Delivered',  sub: 'Across Chennai & Tamil Nadu' },
-              { num: '100%',    label: 'In-House Factory',    sub: 'Melmanambedu, Chennai' },
-              { num: '10 Yrs', label: 'Material Warranty',   sub: 'Tested Hardware & Panels' },
-              { num: '45 Days',label: 'Delivery Guarantee',  sub: 'From Design Sign-Off' },
+              { num: '500+', label: 'Projects Delivered',   sub: 'Across Chennai & Tamil Nadu' },
+              { num: '100%', label: 'In-House Factory',     sub: 'Melmanambedu, Chennai' },
+              { num: '10 Yrs', label: 'Material Warranty', sub: 'Tested Hardware & Panels' },
+              { num: '100%', label: 'Quality Assured',      sub: 'Every Project, Every Time' },
+              { num: '360°', label: 'End-to-End Execution', sub: 'Design to Installation' },
             ].map((stat, i) => (
               <div key={i} className={`trust-stat${i > 0 ? ' trust-stat--border' : ''}`}>
                 <span className="trust-num">{stat.num}</span>
@@ -189,9 +190,12 @@ export default function Home() {
             <Link to="/projects" className="btn-outline-gold btn-sm">View All Projects <ArrowRight size={13} /></Link>
           </div>
           <div className="home-3col-grid">
-            {projects.map((project) => (
+            {projects.filter(p => p.featured).slice(0, 3).map((project) => (
               <CompactProjectCard key={project.id} project={project} />
             ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link to="/projects" className="btn-outline-gold btn-sm">View All Projects <ArrowRight size={13} /></Link>
           </div>
         </div>
       </section>
