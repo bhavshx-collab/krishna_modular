@@ -200,33 +200,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. PRODUCTS SPLIT — real photo left, content right */}
-      <section className="split-section">
-        <div className="split-photo">
-          <img src="/images/gallery/wa_3.jpeg" alt="Krishna Modular premium residential interior" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,20,48,0.28)' }} />
-          <div className="split-photo-caption">
-            <span className="split-photo-tag">Residential</span>
-            <p className="split-photo-title">Luxury Home Interiors</p>
+      {/* 7. OUR PRODUCTS — rebuilt 2-column layout (50% image, 50% single content column) */}
+      <section className="products-section">
+        <div className="products-grid">
+          <div className="products-image">
+            <img
+              src="/images/gallery/wa_2.jpeg"
+              alt="Krishna Modular custom modular kitchen and interior furniture"
+              loading="lazy"
+            />
+            <div className="products-image-overlay" />
+            <div className="products-image-caption">
+              <span className="products-image-tag">Modular Kitchens</span>
+              <p className="products-image-title">Custom Kitchen & Living</p>
+            </div>
           </div>
-        </div>
-        <div className="split-content">
-          <p className="section-label" style={{ color: '#C8971D' }}>Our Products</p>
-          <h2 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, color: '#fff', fontSize: 'clamp(1.375rem,2.75vw,2.125rem)', lineHeight: 1.2, marginBottom: '0.875rem' }}>
-            Every Room,<br /><span style={{ color: '#C8971D' }}>Perfectly Furnished</span>
-          </h2>
-          <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.9rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '26rem' }}>
-            Browse our complete range of custom furniture — from modular kitchens and wardrobes to office and commercial interiors.
-          </p>
-          <div className="split-list">
-            {['Modular Kitchens', 'Custom Wardrobes', 'Bedroom Furniture', 'TV Units & Living Room', 'Office & Commercial'].map(item => (
-              <div key={item} className="split-list-item">
-                <div className="split-dot" />
-                <span>{item}</span>
-              </div>
-            ))}
+
+          <div className="products-content">
+            <p className="products-eyebrow">OUR PRODUCTS</p>
+            <h2 className="products-heading">
+              Every Room,<br />
+              <span className="products-heading-gold">Perfectly Furnished</span>
+            </h2>
+            <p className="products-description">
+              Browse our complete range of custom furniture for kitchens, bedrooms, living rooms, offices and commercial spaces.
+            </p>
+            <ul className="products-category-list">
+              {['Modular Kitchens', 'Custom Wardrobes', 'Bedroom Furniture', 'TV Units & Living Room', 'Office & Commercial'].map(item => (
+                <li key={item} className="products-category-item">
+                  <span className="products-bullet">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link to="/products" className="btn-primary products-button">
+              Explore Products <ArrowRight size={14} />
+            </Link>
           </div>
-          <Link to="/products" className="btn-primary">Explore Products <ArrowRight size={14} /></Link>
         </div>
       </section>
 

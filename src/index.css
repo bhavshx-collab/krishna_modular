@@ -1048,75 +1048,186 @@ img { max-width: 100%; display: block; }
 .cat-card:hover .cat-card-arrow { background: #C8971D; transform: scale(1.1); }
 
 /* --------------------------------------------
-   PRODUCTS SPLIT SECTION
+   OUR PRODUCTS — REBUILT 2-COLUMN SECTION
 -------------------------------------------- */
-.split-section {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 1024px) {
-  .split-section { grid-template-columns: 1fr 1fr; }
-}
-
-.split-photo {
+.products-section {
+  background: #0F1B35;
+  width: 100%;
   position: relative;
-  min-height: 320px;
   overflow: hidden;
 }
-@media (min-width: 1024px) {
-  .split-photo { min-height: 420px; }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
-.split-photo-caption {
+@media (min-width: 769px) {
+  .products-grid {
+    max-height: 640px;
+  }
+}
+
+.products-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0A1428;
+}
+
+.products-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.products-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 20, 48, 0.65) 0%, rgba(10, 20, 48, 0.12) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.products-image-caption {
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
+  left: 1.75rem;
+  right: 1.75rem;
+  z-index: 2;
+  pointer-events: none;
 }
-.split-photo-tag {
+
+.products-image-tag {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #C8971D;
+  display: block;
+  margin-bottom: 0.3rem;
 }
-.split-photo-title {
+
+.products-image-title {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 1.25rem;
-  color: #fff;
-  margin-top: 0.3rem;
+  font-size: 1.15rem;
+  color: #FFFFFF;
   line-height: 1.25;
 }
 
-.split-content {
-  background: #0F1B35;
-  display: flex;
-  align-items: center;
-  padding: clamp(2.5rem,5vw,4.5rem) clamp(1.5rem,4vw,3.5rem);
-}
-
-.split-list {
+.products-content {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 1.75rem;
+  align-items: flex-start;
+  justify-content: center;
+  background: #0F1B35;
+  padding: clamp(2.25rem, 3.2vw, 3.25rem) clamp(1.75rem, 4vw, 3.75rem);
+  box-sizing: border-box;
+  width: 100%;
 }
-.split-list-item {
+
+.products-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C8971D;
+  margin: 0 0 0.65rem 0;
+}
+
+.products-eyebrow::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 2px;
+  background: linear-gradient(90deg, #C8971D, #e0aa30);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.products-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1.1;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.01em;
+}
+
+.products-heading-gold {
+  color: #C8971D;
+}
+
+.products-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(0.875rem, 0.95vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 0 1.25rem 0;
+}
+
+.products-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 480px;
+  width: 100%;
+}
+
+.products-category-item {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.72);
+  gap: 0.65rem;
 }
-.split-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #C8971D;
+
+.products-bullet {
+  color: #C8971D;
+  font-size: 1.1rem;
+  line-height: 1;
   flex-shrink: 0;
+}
+
+.products-button {
+  margin-top: 0;
+}
+
+/* Tablet & Mobile: Stack Image -> Content */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  .products-image {
+    height: 280px;
+    min-height: 240px;
+  }
+  .products-content {
+    padding: 2.25rem 1.5rem 2.75rem 1.5rem;
+  }
+  .products-heading {
+    font-size: clamp(26px, 6.5vw, 34px);
+    line-height: 1.15;
+  }
 }
 
 /* --------------------------------------------
