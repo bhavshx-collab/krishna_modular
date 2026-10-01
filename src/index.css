@@ -365,36 +365,68 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* On mobile, transparent nav sits on white body — force solid background
-   so logo and hamburger are always visible against a proper background */
-.nav-transparent {
-  background: rgba(255,255,255,0.95) !important;
-  box-shadow: 0 1px 16px rgba(0,0,0,0.06) !important;
+/* ── Navbar Responsive Utilities ── */
+.navbar-desktop-nav {
+  display: none !important;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-@media (min-width: 768px) {
-  /* On desktop, the hero is full-screen behind the header — allow transparency */
-  .nav-transparent {
-    background: transparent !important;
-    box-shadow: none !important;
+@media (min-width: 1024px) {
+  .navbar-desktop-nav {
+    display: flex !important;
+  }
+}
+
+.navbar-desktop-cta {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  .navbar-desktop-cta {
+    display: block !important;
+  }
+}
+
+.navbar-mobile-toggle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #1B3A6B;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .navbar-mobile-toggle {
+    display: none !important;
   }
 }
 
 /* ════════════════════════════════════════════
    PAGE HERO (inner pages)
-   Padding accounts for the fixed header above
+   Cinematic interior photo overlay + brand navy gradient
 ════════════════════════════════════════════ */
 .page-hero {
   position: relative;
-  background-color: #1B3A6B;
+  background-color: #0F1B35;
+  background-image: 
+    linear-gradient(135deg, rgba(15, 27, 53, 0.94) 0%, rgba(27, 58, 107, 0.88) 60%, rgba(15, 27, 53, 0.92) 100%),
+    url('/images/gallery/wa_1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   /* Mobile: nav (72px) + generous content padding */
   padding-top: 5rem;
   padding-bottom: 4rem;
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  /* Desktop: the header-spacer already handles the 105px offset,
-     so page-hero just needs its own visual breathing room. */
-  .page-hero { padding-top: 5.5rem; padding-bottom: 5rem; }
+  /* Desktop: the header-spacer handles offset, page-hero provides breathing room */
+  .page-hero { padding-top: 6rem; padding-bottom: 5.5rem; }
 }
 .page-hero::before {
   content: '';
@@ -402,7 +434,7 @@ img { max-width: 100%; display: block; }
   inset: 0;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(200,151,29,0.06) 0, rgba(200,151,29,0.06) 1px,
+    rgba(200,151,29,0.05) 0, rgba(200,151,29,0.05) 1px,
     transparent 0, transparent 50%
   );
   background-size: 20px 20px;
@@ -416,7 +448,7 @@ img { max-width: 100%; display: block; }
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,151,29,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,151,29,0.14) 0%, transparent 70%);
   pointer-events: none;
 }
 

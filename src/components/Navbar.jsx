@@ -31,8 +31,6 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const isHome        = location.pathname === '/'
-  const isTransparent = isHome && !scrolled
 
   return (
     <>
@@ -113,16 +111,13 @@ export default function Navbar() {
             height: '72px',
             flexShrink: 0,
             width: '100%',
-            transition: 'background 0.3s ease, box-shadow 0.3s ease',
-            /* On mobile hero is below the spacer, so transparent nav = invisible hamburger.
-               Only use transparent background on md+ (desktop) where hero fills behind header */
-            background: isTransparent ? 'transparent' : 'rgba(255,255,255,0.97)',
-            backdropFilter: isTransparent ? 'none' : 'blur(14px)',
-            boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
-            borderBottom: isTransparent ? 'none' : '1px solid #E8E2D9',
-            position: 'relative', // for the dropdown
+            background: 'rgba(255,255,255,0.98)',
+            backdropFilter: 'blur(12px)',
+            boxShadow: scrolled ? '0 4px 28px rgba(0,0,0,0.1)' : '0 1px 16px rgba(0,0,0,0.05)',
+            borderBottom: '1px solid #E8E2D9',
+            transition: 'box-shadow 0.3s ease',
+            position: 'relative',
           }}
-          className={isTransparent ? 'nav-transparent' : ''}
         >
           <div style={{
             maxWidth: '80rem',
@@ -136,25 +131,26 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link to="/" aria-label="Krishna Modular" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-              {isTransparent ? (
-                <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(6px)', borderRadius: '8px', padding: '0.3rem 0.5rem' }}>
-                  <img src={logo} alt="Krishna Modular" style={{ height: '2.75rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
-                </div>
-              ) : (
-                <img src={logo} alt="Krishna Modular" style={{ height: '3rem', width: 'auto', objectFit: 'contain', display: 'block' }} draggable={false} />
-              )}
+              <img
+                src={logo}
+                alt="Krishna Modular"
+                style={{ height: '3.1rem', width: 'auto', objectFit: 'contain', display: 'block' }}
+                draggable={false}
+              />
             </Link>
 
-            {/* Desktop Nav Links — hidden on lg and below, show on xl? Actually use lg: breakpoint */}
-            <ul className="hidden lg:flex items-center gap-0.5" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+            {/* Desktop Nav Links — strictly hidden on <1024px, flex on >=1024px */}
+            <ul className="navbar-desktop-nav">
               {navLinks.map(({ label, path }) => (
                 <li key={path}>
                   <NavLink
                     to={path}
                     end={path === '/'}
                     className={({ isActive }) =>
-                      'block px-3.5 py-2 rounded font-medium text-sm tracking-wide transition-colors duration-200 ' +
-                      (isActive ? 'text-[#C8971D]' : isTransparent ? 'text-white/90 hover:text-[#C8971D]' : 'text-[#1C1C1E] hover:text-[#C8971D]')
+                      'block px-3.5 py-2 rounded-md font-medium text-[0.875rem] tracking-wide transition-all duration-200 ' +
+                      (isActive
+                        ? 'text-[#C8971D] font-semibold bg-[#F5F0E8]/70 shadow-xs'
+                        : 'text-[#1C1C1E] hover:text-[#C8971D] hover:bg-[#FAF8F5]')
                     }
                     style={{ fontFamily: "'Outfit',sans-serif" }}
                   >
@@ -164,32 +160,19 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA + Hamburger row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+            {/* Right: CTA button on desktop, Hamburger on mobile */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', flexShrink: 0 }}>
               {/* CTA Button — desktop only */}
-              <div className="hidden lg:block">
-                <Link to="/contact" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.65rem 1.375rem' }}>
+              <div className="navbar-desktop-cta">
+                <Link to="/contact" className="btn-primary" style={{ fontSize: '0.825rem', padding: '0.625rem 1.35rem' }}>
                   Get Free Quote
                 </Link>
               </div>
 
-              {/* Hamburger — mobile/tablet only */}
+              {/* Hamburger — strictly mobile/tablet only (hidden on lg+) */}
               <button
                 onClick={() => setMobileOpen(v => !v)}
-                className="lg:hidden"
-                style={{
-                  padding: '0.5rem',
-                  border: 'none',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  /* Always blue on mobile (nav is always white on mobile),
-                     white only on desktop when nav is transparent over hero */
-                  color: '#1B3A6B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
+                className="navbar-mobile-toggle"
                 aria-label="Toggle menu"
                 id="mobile-menu-toggle"
               >

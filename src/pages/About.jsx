@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
-import { CheckCircle2, MapPin, ArrowRight, ShieldCheck, Award, Factory } from 'lucide-react'
+import { CheckCircle2, MapPin, ArrowRight, ShieldCheck } from 'lucide-react'
 
 const values = [
   { title: 'Precision Craftsmanship', desc: 'Every joint, finish and fitting is executed with meticulous attention to detail.' },
@@ -131,10 +131,23 @@ export default function About() {
         <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 2rem' }}>
           <div style={{ display: 'grid', gap: '3.5rem', alignItems: 'center' }} className="lg:grid-cols-2">
             <div style={{ position: 'relative' }} className="order-2 lg:order-1">
-              <div className="shimmer img-placeholder" style={{ height: '380px', borderRadius: '12px', border: '1px solid #E8E2D9', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', background: 'linear-gradient(135deg, #F5F0E8 0%, #EFEAE0 100%)' }}>
-                <ShieldCheck size={40} style={{ color: '#C8971D', opacity: 0.7 }} />
-                <span style={{ color: '#8B6914', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>Precision In-House Machinery</span>
-                <span style={{ color: '#6B7280', fontSize: '0.8rem', fontFamily: "'Outfit', sans-serif" }}>100% Controlled Production</span>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid #E8E2D9', boxShadow: '0 12px 35px -10px rgba(0,0,0,0.18)', height: '400px', position: 'relative' }}>
+                <img
+                  src="/images/gallery/45.jpeg"
+                  alt="Krishna Modular in-house manufacturing machinery and joinery"
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,27,53,0.7) 0%, transparent 60%)' }} />
+                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', right: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '8px', background: 'rgba(200,151,29,0.9)', backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                    <ShieldCheck size={20} />
+                  </div>
+                  <div>
+                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C8971D' }}>In-House Precision</p>
+                    <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '0.95rem', color: '#fff', margin: 0 }}>100% Controlled Joinery Execution</p>
+                  </div>
+                </div>
               </div>
             </div>
 

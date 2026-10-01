@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, ExternalLink } from 'lucide-react'
 
 /* Lucide-react doesn't export Instagram — use inline SVG */
 function InstagramIcon({ size = 18 }) {
