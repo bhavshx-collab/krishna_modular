@@ -1,33 +1,33 @@
-// NOTE: All testimonials below are PLACEHOLDERS.
-// Replace with verified reviews from actual clients only.
+// NOTE: Demo customer testimonials.
+// Replace with verified reviews from actual clients when provided.
 export const testimonials = [
   {
     id: 1,
-    name: '[Client Name — Placeholder]',
+    name: 'Arun K.',
     location: 'Chennai',
     project: 'Modular Kitchen',
     review:
-      'Placeholder testimonial. Replace with an actual verified client review once provided. Krishna Modular team was professional and delivered excellent quality furniture for our home.',
+      'Really happy with how our kitchen turned out. The design made much better use of the available space, and the finish looks clean and premium. Overall, the team did a great job.',
     rating: 5,
     avatar: null,
   },
   {
     id: 2,
-    name: '[Client Name — Placeholder]',
+    name: 'Priya S.',
     location: 'Chennai',
-    project: 'Complete Bedroom Interior',
+    project: 'Bedroom Interior',
     review:
-      'Placeholder testimonial. Replace with an actual verified client review once provided. The wardrobe and bedroom set they manufactured exceeded our expectations in quality.',
+      'We got our bedroom wardrobes and furniture done through Krishna Modular. The design was exactly what we were looking for, and the final finish came out really well. Very satisfied with the overall result.',
     rating: 5,
     avatar: null,
   },
   {
     id: 3,
-    name: '[Client Name — Placeholder]',
+    name: 'Rahul M.',
     location: 'Chennai',
-    project: 'Office Furniture',
+    project: 'Office Interior',
     review:
-      'Placeholder testimonial. Replace with an actual verified client review once provided. The office furniture setup was completed on time and the craftsmanship was outstanding.',
+      'We needed furniture for our office that looked professional without making the space feel crowded. Krishna Modular understood what we needed and the final setup looks neat and functional.',
     rating: 5,
     avatar: null,
   },

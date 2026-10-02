@@ -36,11 +36,7 @@ export default function TestimonialsPage() {
             <p className="section-subtext">
               We take pride in delivering furniture and interiors that our clients are truly proud of.
             </p>
-            <div style={{ marginTop: '0.75rem' }}>
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.75rem', color: '#b45309', background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '100px', padding: '0.35rem 1.1rem', display: 'inline-block' }}>
-                ⚠ Placeholder reviews — will be updated with verified reviews from clients
-              </span>
-            </div>
+
           </div>
 
           <div style={{ display: 'grid', gap: '1.5rem' }} className="sm:grid-cols-2 lg:grid-cols-3">

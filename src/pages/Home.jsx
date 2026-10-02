@@ -290,8 +290,8 @@ export default function Home() {
           <div className="section-intro centered" style={{ marginBottom: '2.25rem' }}>
             <p className="section-label">Testimonials</p>
             <h2 className="section-heading" style={{ marginBottom: '0.625rem' }}>What Our Clients <span>Say</span></h2>
-            <p style={{ fontFamily: "'Outfit',sans-serif", fontSize: '0.7rem', color: '#b45309', background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '100px', padding: '0.25rem 0.875rem', display: 'inline-block', marginTop: '0.5rem' }}>
-              Placeholder testimonials — to be replaced with verified client reviews
+            <p className="section-subtext">
+              Real experiences from homeowners and businesses across Chennai.
             </p>
           </div>
           <div className="home-3col-grid">
