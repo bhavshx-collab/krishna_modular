@@ -30,7 +30,7 @@ const productCategories = [
   { name: 'Custom Wardrobes',    image: '/images/gallery/37.jpeg',   slug: 'wardrobes' },
   { name: 'Bedroom Furniture',   image: '/images/gallery/27.jpeg',   slug: 'bedroom-furniture' },
   { name: 'Living Room',         image: '/images/gallery/26.jpeg',   slug: 'living-room-furniture' },
-  { name: 'TV Units',            image: '/images/gallery/15.jpeg',   slug: 'tv-units' },
+  { name: 'TV Units',            image: '/images/gallery/16.jpeg',   slug: 'tv-units' },
   { name: 'Office & Commercial', image: '/images/gallery/47.jpeg',   slug: 'office-furniture' },
 ]
 

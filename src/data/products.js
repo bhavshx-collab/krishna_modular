@@ -23,7 +23,7 @@ export const products = [
     category: 'TV Units',
     title: 'Media & TV Units',
     shortDesc: 'Modern media walls and TV units with integrated display and storage.',
-    image: '/images/gallery/26.jpeg',
+    image: '/images/gallery/16.jpeg',
     tag: null,
   },
   {

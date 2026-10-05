@@ -8,9 +8,9 @@ const serviceImages = {
   'bedroom-furniture': '/images/gallery/27.jpeg',
   'living-room-furniture': '/images/gallery/26.jpeg',
   'office-furniture': '/images/gallery/47.jpeg',
-  'tv-units': '/images/gallery/15.jpeg',
+  'tv-units': '/images/gallery/26.jpeg',
   'storage-solutions': '/images/gallery/42.jpeg',
-  'custom-furniture': '/images/gallery/48.jpeg',
+  'custom-furniture': '/images/gallery/14.jpeg',
   'complete-interiors': '/images/gallery/wa_1.jpeg',
 }
 
