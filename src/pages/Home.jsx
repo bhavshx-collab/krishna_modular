@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Hero from '../components/Hero'
 import ServiceCard from '../components/ServiceCard'
 import TestimonialCard from '../components/TestimonialCard'
@@ -65,6 +65,192 @@ function CategoryCard({ cat }) {
         <div className="cat-card-arrow"><ArrowRight size={13} style={{ color: '#fff' }} /></div>
       </div>
     </Link>
+  )
+}
+
+/* -- Video Section Component -- */
+function VideoSection() {
+  const videoRef = useRef(null)
+  const [playing, setPlaying] = useState(false)
+
+  const togglePlay = () => {
+    const v = videoRef.current
+    if (!v) return
+    if (v.paused) { v.play(); setPlaying(true) }
+    else          { v.pause(); setPlaying(false) }
+  }
+
+  const handleEnded = () => setPlaying(false)
+
+  return (
+    <section
+      id="video-section"
+      style={{
+        background: '#0D1A33',
+        padding: 'clamp(3rem,6vw,5rem) 0',
+        borderTop: '2px solid #C8971D',
+        borderBottom: '1px solid rgba(200,151,29,0.2)',
+      }}
+    >
+      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
+
+        {/* Section header */}
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(1.75rem,4vw,2.75rem)' }}>
+          <p style={{
+            fontFamily: "'Outfit',sans-serif",
+            fontSize: '0.68rem',
+            fontWeight: 700,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: '#C8971D',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            marginBottom: '0.75rem',
+          }}>
+            <span style={{ display: 'block', width: '1.5rem', height: '2px', background: '#C8971D', flexShrink: 0 }} />
+            Our Work
+            <span style={{ display: 'block', width: '1.5rem', height: '2px', background: '#C8971D', flexShrink: 0 }} />
+          </p>
+          <h2 style={{
+            fontFamily: "'Playfair Display',Georgia,serif",
+            fontWeight: 700,
+            color: '#fff',
+            fontSize: 'clamp(1.5rem,3.5vw,2.5rem)',
+            lineHeight: 1.15,
+            marginBottom: '0.75rem',
+          }}>
+            See Our Work <span style={{ color: '#C8971D' }}>in Action</span>
+          </h2>
+          <p style={{
+            fontFamily: "'Outfit',sans-serif",
+            fontSize: '0.9375rem',
+            color: 'rgba(255,255,255,0.55)',
+            lineHeight: 1.75,
+            maxWidth: '38rem',
+            margin: '0 auto',
+          }}>
+            A glimpse of the craftsmanship, detail and care that goes into every Krishna Modular project.
+          </p>
+        </div>
+
+        {/* Video container */}
+        <div style={{
+          maxWidth: '900px',
+          margin: '0 auto',
+          position: 'relative',
+          borderRadius: '16px',
+          overflow: 'hidden',
+          boxShadow: '0 24px 80px rgba(0,0,0,0.55)',
+          outline: '2px solid rgba(200,151,29,0.3)',
+          outlineOffset: '6px',
+          aspectRatio: '16/9',
+          background: '#000',
+        }}>
+
+          {/* Native video */}
+          <video
+            ref={videoRef}
+            id="krishna-modular-showreel"
+            src="/videos/krishna-modular-showreel.mp4"
+            muted={false}
+            playsInline
+            preload="metadata"
+            onEnded={handleEnded}
+            onClick={togglePlay}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              cursor: 'pointer',
+            }}
+            aria-label="Krishna Modular showreel — see our furniture and interior projects"
+          />
+
+          {/* Custom play/pause overlay */}
+          {!playing && (
+            <button
+              onClick={togglePlay}
+              id="video-play-btn"
+              aria-label="Play video"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(11,24,51,0.45)',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              {/* Gold ring + play icon */}
+              <span style={{
+                width: '5rem',
+                height: '5rem',
+                borderRadius: '50%',
+                border: '2.5px solid #C8971D',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(200,151,29,0.18)',
+                transition: 'background 0.25s, transform 0.25s',
+              }}
+              className="video-play-ring"
+              >
+                {/* Play triangle */}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="#C8971D"
+                  style={{ width: '1.75rem', height: '1.75rem', marginLeft: '4px' }}
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </button>
+          )}
+
+          {/* Pause indicator (visible briefly on click when playing) */}
+          {playing && (
+            <button
+              onClick={togglePlay}
+              aria-label="Pause video"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+            />
+          )}
+        </div>
+
+        {/* Caption below video */}
+        <p style={{
+          fontFamily: "'Outfit',sans-serif",
+          fontSize: '0.78rem',
+          color: 'rgba(255,255,255,0.35)',
+          letterSpacing: '0.08em',
+          textAlign: 'center',
+          marginTop: '1.25rem',
+          textTransform: 'uppercase',
+        }}>
+          Krishna Modular · Chennai — Real Client Project
+        </p>
+      </div>
+
+      {/* hover style for play ring */}
+      <style>{`
+        .video-play-ring:hover {
+          background: rgba(200,151,29,0.35) !important;
+          transform: scale(1.08);
+        }
+      `}</style>
+    </section>
   )
 }
 
@@ -284,7 +470,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. TESTIMONIALS (cream) */}
+      {/* 10. VIDEO — See Our Work in Action */}
+      <VideoSection />
+
+      {/* 11. TESTIMONIALS (cream) */}
       <section className="home-section" style={{ background: '#FAF8F5', borderTop: '1px solid #E8E2D9' }}>
         <div style={ctr}>
           <div className="section-intro centered" style={{ marginBottom: '2.25rem' }}>
@@ -302,10 +491,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. CTA */}
+      {/* 12. CTA */}
       <CTA />
 
-      {/* 12. CONTACT STRIP */}
+      {/* 13. CONTACT STRIP */}
       <section style={{ background: '#fff', borderTop: '1px solid #E8E2D9', padding: 'clamp(1.875rem,4vw,3rem) 0' }}>
         <div style={ctr}>
           <div className="contact-strip">
